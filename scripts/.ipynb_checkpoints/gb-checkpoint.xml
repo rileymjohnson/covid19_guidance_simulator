@@ -1,0 +1,21 @@
+<ned-file filename="C:/Users/riley/Projects/covid19_guidance_simulator/src/special/guidance_dispatcher.ned">
+    <package name="covid19_guidance_simulator.special">
+        <comment locid="right" content="&#10;&#10;" />
+    </package>
+    <simple-module name="GuidanceDispatcher">
+        <parameters>
+            <property name="display">
+                <property-key>
+                    <literal type="string" text="&quot;i=icons/special/guidance_dispatcher_blue_n&quot;" value="i=icons/special/guidance_dispatcher_blue_n" />
+                </property-key>
+            </property>
+        </parameters>
+        <gates>
+            <gate name="principal_agents" type="inout" is-vector="true" vector-size="sizeof(parent.principal_agents)" />
+            <gate name="auxiliary_agents" type="inout" is-vector="true" vector-size="sizeof(parent.auxiliary_agents)" />
+            <gate name="primary_facility" type="inout" />
+            <gate name="secondary_facility" type="inout" />
+            <gate name="tertiary_facility" type="inout" />
+        </gates>
+    </simple-module>
+</ned-file>

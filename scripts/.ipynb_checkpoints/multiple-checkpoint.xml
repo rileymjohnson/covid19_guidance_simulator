@@ -1,0 +1,46 @@
+<ned-file filename="../src/special/test.ned">
+    <simple-module name="Node">
+        <comment locid="trailing" content="&#10;&#10;" />
+        <parameters>
+            <param type="double" name="baz" />
+        </parameters>
+    </simple-module>
+    <simple-module name="PingApp">
+        <comment locid="trailing" content="&#10;&#10;" />
+        <parameters>
+            <param type="string" name="protocol" value="&quot;ICMP/ECHO&quot;" />
+            <param type="int" name="x" value="5" is-default="true" />
+        </parameters>
+    </simple-module>
+    <channel name="Backbone">
+        <comment locid="trailing" content="&#10;&#10;" />
+        <extends name="ned.DatarateChannel" />
+        <parameters is-implicit="true">
+            <property name="backbone" />
+            <param type="double" name="cost" value="1" is-default="true" />
+        </parameters>
+    </channel>
+    <compound-module name="MyNetwork">
+        <comment locid="trailing" content="&#10;&#10;" />
+        <parameters>
+            <property is-implicit="true" name="isNetwork" />
+            <param type="double" name="foo" value="5" is-default="true" />
+            <param type="double" name="bar" value="foo" />
+        </parameters>
+        <submodules>
+            <submodule name="node" type="Node" vector-size="10">
+                <parameters is-implicit="true">
+                    <param name="baz" value="foo" />
+                </parameters>
+            </submodule>
+        </submodules>
+    </compound-module>
+    <channel name="Ethernet100">
+        <extends name="ned.DatarateChannel" />
+        <parameters is-implicit="true">
+            <param name="datarate" value="100Mbps" />
+            <param name="delay" value="100us" />
+            <param name="ber" value="1e-10" />
+        </parameters>
+    </channel>
+</ned-file>

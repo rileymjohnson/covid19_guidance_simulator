@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<ned-file filename="C:/Users/riley/AppData/Local/Temp/tmp2v0b49xy/test.ned">
+    <package name="covid19_guidance_simulator">
+        <comment locid="right" content="&#10;&#10;"/>
+    </package>
+    <import import-spec="covid19_guidance_simulator.geographies.County"/>
+    <import import-spec="covid19_guidance_simulator.special.Globals">
+        <comment locid="right" content="&#10;&#10;"/>
+    </import>
+    <compound-module name="Covid19GuidanceSimulator">
+        <comment locid="trailing" content="&#10;&#10;"/>
+        <parameters>
+            <property is-implicit="true" name="isNetwork"/>
+            <param type="string" name="start_date" value="&quot;2020-01-01&quot;" is-default="true"/>
+            <param type="string" name="map_color_mode" value="&quot;dark&quot;" is-default="true"/>
+            <param type="string" name="short_name" value="&quot;No Name&quot;" is-default="true"/>
+            <param type="string" name="long_name" value="&quot;No Name&quot;" is-default="true"/>
+            <param type="string" name="asset_name" value="&quot;new_york_city&quot;" is-default="true"/>
+            <param type="int" name="num_counties" value="intuniform(2, 5)" is-default="true">
+                <comment locid="right" content="&#10;&#10;"/>
+            </param>
+            <property name="display">
+                <property-key>
+                    <literal type="string" text="&quot;bgb=915,550;bgi=images/maps/$map_color_mode/$asset_name,s;bgg=100,2,grey95;bgu=km&quot;" value="bgb=915,550;bgi=images/maps/$map_color_mode/$asset_name,s;bgg=100,2,grey95;bgu=km"/>
+                </property-key>
+            </property>
+        </parameters>
+        <submodules>
+            <submodule name="globals" type="Globals">
+                <parameters is-implicit="true">
+                    <param name="start_date_string" value="parent.start_date"/>
+                </parameters>
+            </submodule>
+            <submodule name="counties" type="County" vector-size="num_counties">
+                <parameters is-implicit="true">
+                    <param name="map_color_mode" value="parent.map_color_mode"/>
+                </parameters>
+            </submodule>
+        </submodules>
+    </compound-module>
+</ned-file>

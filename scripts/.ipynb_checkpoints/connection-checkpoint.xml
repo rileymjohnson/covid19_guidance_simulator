@@ -1,0 +1,13 @@
+<ned-file filename="../src/special/test.ned">
+    <package name="covid19_guidance_simulator.special">
+        <comment locid="right" content="&#10;&#10;" />
+    </package>
+    <channel name="Ethernet100">
+        <extends name="ned.DatarateChannel" />
+        <parameters is-implicit="true">
+            <param name="datarate" value="100Mbps" />
+            <param name="delay" value="100us" />
+            <param name="ber" value="1e-10" />
+        </parameters>
+    </channel>
+</ned-file>
